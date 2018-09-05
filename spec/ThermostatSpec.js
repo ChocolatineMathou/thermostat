@@ -14,9 +14,32 @@ describe('Thermostat', function() {
   });
 
   describe('increaseTemperature', function() {
-    it('increases current temperature by 1', function() {
-      thermostat.increaseTemperature();
-      expect(thermostat.currentTemp()).toEqual(21);
+
+    describe('when power saving is on', function() {
+      it('increases current temperature by 1', function() {
+        thermostat.increaseTemperature();
+        expect(thermostat.currentTemp()).toEqual(21);
+      });
+
+      it('throws an error if temp is at max', function(){
+        thermostat.temperature = this.SAVING_ON_MAX_TEMP;
+        expect(function() {thermostat.increaseTemperature()}).toThrow("Temperature at max: switch off power saving")
+      });
+    });
+
+    describe('when power saving is off', function() {
+      it('increases current temperature by 1', function() {
+        this.switchPowerSaving
+        thermostat.increaseTemperature();
+        expect(thermostat.currentTemp()).toEqual(21);
+      });
+
+      it('throws an error if temp is at max', function(){
+        this.switchPowerSaving
+        console.log(this.powerSaving)
+        thermostat.temperature = this.SAVING_OFF_MAX_TEMP;
+        expect(function() {thermostat.increaseTemperature()}).toThrow("Temperature at max: can't increase temperature")
+      });
     });
   });
 
