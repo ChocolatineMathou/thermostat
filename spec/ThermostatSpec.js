@@ -32,4 +32,25 @@ describe('Thermostat', function() {
     });
   });
 
+  describe('powerSaving', function() {
+    it('is on by default', function() {
+      expect(thermostat.powerSaving).toEqual(true);
+    });
+  });
+
+  describe('switchPowerSaving', function() {
+    it('switches true to false', function() {
+      thermostat.powerSaving = false
+      thermostat.switchPowerSaving();
+      expect(thermostat.powerSaving).toEqual(true);
+    });
+
+    it('switches false to true', function() {
+      thermostat.switchPowerSaving();
+      expect(thermostat.powerSaving).toEqual(false);
+    });
+
+  });
+
+
 });
