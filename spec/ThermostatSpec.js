@@ -25,6 +25,11 @@ describe('Thermostat', function() {
       thermostat.decreaseTemperature();
       expect(thermostat.currentTemp()).toEqual(19);
     });
+
+    it('does not decrease below minimum', function() {
+      thermostat.temperature = thermostat.MINIMUM;
+      expect(function() {thermostat.decreaseTemperature()}).toThrow('NOT GONNA WORK BITCH');
+    });
   });
 
 });
