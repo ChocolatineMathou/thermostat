@@ -20,7 +20,8 @@ Thermostat.prototype.increaseTemperature = function() {
     else {
       throw "Temperature at max: switch off power saving";
     }
-  else if (this.powerSaving === false) {
+  else {
+    // power saving is always true
     if (this.temperature < this.SAVING_OFF_MAX_TEMP) {
       this.temperature ++;
     }

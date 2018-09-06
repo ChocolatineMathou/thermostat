@@ -22,22 +22,31 @@ describe('Thermostat', function() {
       });
 
       it('throws an error if temp is at max', function(){
-        thermostat.temperature = this.SAVING_ON_MAX_TEMP;
+        thermostat.temperature = thermostat.SAVING_ON_MAX_TEMP;
         expect(function() {thermostat.increaseTemperature()}).toThrow("Temperature at max: switch off power saving")
       });
     });
 
     describe('when power saving is off', function() {
       it('increases current temperature by 1', function() {
+<<<<<<< HEAD
         this.switchPowerSaving();
+=======
+        thermostat.switchPowerSaving()
+>>>>>>> 7943b948c35355a7276ee04a19d504b6ec9e3f63
         thermostat.increaseTemperature();
         expect(thermostat.currentTemp()).toEqual(21);
       });
 
       it('throws an error if temp is at max', function(){
+<<<<<<< HEAD
         this.switchPowerSaving();
         console.log(this.powerSaving)
         thermostat.temperature = this.SAVING_OFF_MAX_TEMP;
+=======
+        thermostat.switchPowerSaving()
+        thermostat.temperature = thermostat.SAVING_OFF_MAX_TEMP;
+>>>>>>> 7943b948c35355a7276ee04a19d504b6ec9e3f63
         expect(function() {thermostat.increaseTemperature()}).toThrow("Temperature at max: can't increase temperature")
       });
     });
@@ -72,8 +81,5 @@ describe('Thermostat', function() {
       thermostat.switchPowerSaving();
       expect(thermostat.powerSaving).toEqual(false);
     });
-
   });
-
-
 });
