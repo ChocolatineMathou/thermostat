@@ -30,7 +30,11 @@ describe('Thermostat', function() {
     describe('when power saving is off', function() {
       it('increases current temperature by 1', function() {
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.switchPowerSaving();
+=======
+        thermostat.switchPowerSaving()
+>>>>>>> 7943b948c35355a7276ee04a19d504b6ec9e3f63
 =======
         thermostat.switchPowerSaving()
 >>>>>>> 7943b948c35355a7276ee04a19d504b6ec9e3f63
@@ -40,9 +44,14 @@ describe('Thermostat', function() {
 
       it('throws an error if temp is at max', function(){
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.switchPowerSaving();
         console.log(this.powerSaving)
         thermostat.temperature = this.SAVING_OFF_MAX_TEMP;
+=======
+        thermostat.switchPowerSaving()
+        thermostat.temperature = thermostat.SAVING_OFF_MAX_TEMP;
+>>>>>>> 7943b948c35355a7276ee04a19d504b6ec9e3f63
 =======
         thermostat.switchPowerSaving()
         thermostat.temperature = thermostat.SAVING_OFF_MAX_TEMP;
